@@ -1,5 +1,6 @@
 pyrogram
 pymongo
+unidecode
 requests
 dnspython
 tgcrypto==1.2.2
