@@ -15,7 +15,6 @@ import random
 import time
 import random
 import logging
-import platform
 import psutil
 from pyrogram import Client, filters
 from pyrogram.types import Message
