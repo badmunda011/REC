@@ -7,13 +7,46 @@ import asyncio
 import os
 from os import getenv
 import traceback
-from pyrogram import filters, Client
 from pyrogram.types import Message
 from unidecode import unidecode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import random 
 import time
 import random
+import logging
+import platform
+import psutil
+from pyrogram import Client, filters
+from pyrogram.types import Message
+import asyncio
+
+
+MAX_MESSAGE_LENGTH = 30
+    
+@app.on_edited_message(filters.group & ~filters.me)
+async def handle_edited_messages(_, edited_message: Message):
+    await delete_long_edited_messages(_, edited_message)
+
+async def delete_long_edited_messages(client, edited_message: Message):
+    if edited_message.text:
+        if len(edited_message.text.split()) > 30:
+            await edited_message.delete()
+            AMBOT = await edited_message.reply_text(f"{edited_message.from_user.mention} ᴇᴅɪᴛ ᴍᴇꜱꜱᴇɢᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴡɪᴛʜ ᴍᴇꜱꜱᴇɢᴇ ʟᴇɴɢᴛʜ 30+!")
+            await asyncio.sleep(20)
+            await AMBOT.delete()
+
+@app.on_message(filters.group & ~filters.me)
+async def handle_messages(_, message: Message):
+    await delete_long_messages(_, message)
+
+async def delete_long_messages(client, message: Message):
+    if message.text:
+        if len(message.text.split()) > MAX_MESSAGE_LENGTH:
+            await message.delete()
+            AMBOT = await message.reply_text(f"{message.from_user.mention} ʏᴏᴜʀ ᴍᴇꜱꜱᴇɢᴇ ʟᴇɴɢᴛʜ 30+ ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ!")
+            await asyncio.sleep(20)
+            await AMBOT.delete()
+
 
 api_id = 26480985 #--Add your Api Id here
 api_hash = '56c935fae1c5c86ba5a3af655f8caa9d' #--Enter Api Hash Here
