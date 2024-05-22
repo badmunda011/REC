@@ -22,7 +22,7 @@ import asyncio
 
 MAX_MESSAGE_LENGTH = 30
     
-@app.on_edited_message(filters.group & ~filters.me)
+@app.on_message(filters.group & ~filters.me)
 async def handle_edited_messages(_, edited_message: Message):
     await delete_long_edited_messages(_, edited_message)
 
