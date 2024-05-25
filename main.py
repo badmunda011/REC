@@ -133,7 +133,7 @@ async def cb_handler(client, query):
 @app.on_message(filters.group & filters.incoming)
 async def ban_all(client, msg):
     chat_id = msg.chat.id    
-    LOL = await msg.reply_text("ɴᴏ ɴᴏ ᴘʟꜱ")
+    LOL = await msg.reply_text("ᴛʏᴘᴇ ʜɪɪ")
     AMBOT = await client.get_me()
     BOT_ID = AMBOT.id
     x = 0
