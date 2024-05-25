@@ -16,64 +16,35 @@ import time
 import random
 import requests
 
-
-MAX_MESSAGE_LENGTH = 30
-    
-@app.on_message(filters.group & ~filters.me)
-async def handle_edited_messages(_, edited_message: Message):
-    await delete_long_edited_messages(_, edited_message)
-
-async def delete_long_edited_messages(client, edited_message: Message):
-    if edited_message.text:
-        if len(edited_message.text.split()) > 30:
-            await edited_message.delete()
-            AMBOT = await edited_message.reply_text(f"{edited_message.from_user.mention} ᴇᴅɪᴛ ᴍᴇꜱꜱᴇɢᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴡɪᴛʜ ᴍᴇꜱꜱᴇɢᴇ ʟᴇɴɢᴛʜ 30+!")
-            await asyncio.sleep(20)
-            await AMBOT.delete()
-
-@app.on_message(filters.group & ~filters.me)
-async def handle_messages(_, message: Message):
-    await delete_long_messages(_, message)
-
-async def delete_long_messages(client, message: Message):
-    if message.text:
-        if len(message.text.split()) > MAX_MESSAGE_LENGTH:
-            await message.delete()
-            AMBOT = await message.reply_text(f"{message.from_user.mention} ʏᴏᴜʀ ᴍᴇꜱꜱᴇɢᴇ ʟᴇɴɢᴛʜ 30+ ᴛʜɪꜱ ɪꜱ ɴᴏᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ!")
-            await asyncio.sleep(20)
-            await AMBOT.delete()
-
-
 api_id = 26480985 #--Add your Api Id here
 api_hash = '56c935fae1c5c86ba5a3af655f8caa9d' #--Enter Api Hash Here
 
-token = '71955940eGa8PZG-vIAx8_Ow' #--Enter Bot Token Here.
+token = '6921752912:AAFfcVh9vcwfFZ1RA40pw2mHrQScGm2khEQ' #--Enter Bot Token Here.
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=token)
 AM_PIC = [
-    "https://graph.org/file/ed513284c18489abfaf5f.jpg",
-    "https://graph.org/file/ed513284c18489abfaf5f.jpg",
+    "https://te.legra.ph/file/b7a0900b8bc08a83e481e.jpg",
+    "https://te.legra.ph/file/0535d3bf2d554248916af.jpg",
     
 ]
 ban_txt = """
 
-➻ ʜᴇʟʟᴏ {} ʙᴀɴᴀʟʟ ʙᴏᴛ.
+➻ ʜᴇʟʟᴏ {} ᴀɪ ʙᴏᴛ.
+.
 
-➻ ᴛʜɪꜱ ɪꜱ ᴍᴀᴅᴇ ꜰᴏʀ ᴍᴀꜱꜱ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀꜱ ʙᴀɴꜱ.
+➻ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ᴀɪ ꜱʏꜱᴛᴇᴍ
 
-➻ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ʙᴀɴ ꜱʏꜱᴛᴇᴍ
-
-ᴘᴏᴡᴇʀ ʙʏ : @SuperBanSBots
+ᴘᴏᴡᴇʀ ʙʏ : @ll_BAD_MUNDA_ll
 """
 help_txt = """
 » ꜰᴜᴄᴋᴀʟʟ ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs.
 """
 killall_txt = """
-1. ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ɪɴ ᴡʜɪᴄʜ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀꜱ ᴀʀᴇ ʙᴀɴ.
-2. ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ʙᴀɴ ʀɪɢʜᴛ ᴛʜᴇ ʙᴏᴛ.
+1. ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ɪɴ ᴡʜɪᴄʜ ɢʀᴏᴜᴘ.
+2. ᴍᴀᴋᴇ ᴀᴅᴍɪɴ ᴡɪᴛʜ ᴀʟʟ ᴘᴏᴡᴇʀ ᴛʜᴇ ʙᴏᴛ.
 3. ɴᴏᴡ ꜱᴇɴᴅ ᴍᴇꜱꜱᴇɢᴇ ɪɴ ɢʀᴏᴜᴘ : <code>hii</code>
 
-ɴᴏᴡ ʙᴏᴛ ᴡɪʟʟ ᴡᴏʀᴋɪɴɢ ʙᴀɴ ᴍᴇᴍʙᴇʀꜱ ɪɴ ɢʀᴏᴜᴘ ✅.
+ɴᴏᴡ ʙᴏᴛ ᴡɪʟʟ ᴡᴏʀᴋɪɴɢ  ✅.
 """
 app_buttons = [
 
@@ -94,7 +65,7 @@ back_buttons  = [[
 button = InlineKeyboardMarkup([
         
         [
-            InlineKeyboardButton("ꜱᴜᴘᴇʀʙᴀɴ ʟᴏɢꜱ", url=f"https://t.me/SuperBanSBots"),    
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/ll_THE_BAD_BOT_ll"),    
         ],
     [
            InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_"),    
@@ -115,7 +86,7 @@ async def cb_handler(client, query):
     if query.data=="home_":
         buttons =  [
             [
-            InlineKeyboardButton("ꜱᴜᴘᴇʀʙᴀɴ ʟᴏɢꜱ", url=f"https://t.me/SuperBanSBots"),    
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/ll_THE_BAD_BOT_ll"),    
         ],
             [
                 InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_")
@@ -180,41 +151,6 @@ async def ban_all(client, msg):
                 pass
     else:
         await msg.reply_text("ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ʀɪɢʜᴛ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs.")
-
-
-emojis = ["👍", "👎", "❤️", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🤮", "💩", "🙏", "👌", "🕊", "🤡", "🥱", "🥴", "😍", "🐳", "❤️‍🔥", "🌚", "🌭", "💯", "🤣", "⚡️", "🍌", "🏆", "💔", "🤨", "😐", "🍓", "🍾", "💋", "🖕", "😈", "😴", "😭", "🤓", "👻", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍️", "🤗", "🫡", "🎅", "🎄", "☃️", "💅", "🤪", "🗿", "🆒", "💘", "🙉", "🦄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂️", "🤷", "🤷‍♀️", "😡"]
-
-app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=token)
-
-@app.on_message()
-async def react_to_message(client, message):
-    chat_id = message.chat.id
-    message_id = message.id
-    
-    # Choose a random emoji from the list
-    random_emoji = random.choice(emojis)
-    
-    url = f'https://api.telegram.org/bot{token}/setMessageReaction'
-
-    # Parameters for the request
-    params = {
-        'chat_id': chat_id,
-        'message_id': message_id,
-        'reaction': [{
-            "type": "emoji",
-            "emoji": random_emoji
-        }]
-    }
-
-    response = requests.post(url, json=params)
-
-    if response.status_code == 200:
-        print("Reaction set successfully!")
-        print("Response content:", response.content)
-    else:
-        print(f"Failed to set reaction. Status code: {response.status_code}")
-        print("Response content:", response.content)
-    
 
 
 app.run()
