@@ -30,14 +30,13 @@ AM_PIC = [
 ban_txt = """
 
 ➻ ʜᴇʟʟᴏ {} ᴀɪ ʙᴏᴛ.
-.
 
-➻ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ᴀɪ ꜱʏꜱᴛᴇᴍ
+➻ ᴘᴏᴡᴇʀ ꜰᴜʟʟ ᴀɪ ꜱʏꜱᴛᴇᴍ.
 
 ᴘᴏᴡᴇʀ ʙʏ : @ll_BAD_MUNDA_ll
 """
 help_txt = """
-» ꜰᴜᴄᴋᴀʟʟ ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs.
+» ᴀɪ ʙᴏᴛ ғᴇᴀᴛᴜʀᴇs.
 """
 killall_txt = """
 1. ᴀᴅᴅ ʏᴏᴜʀ ʙᴏᴛ ɪɴ ᴡʜɪᴄʜ ɢʀᴏᴜᴘ.
@@ -49,7 +48,7 @@ killall_txt = """
 app_buttons = [
 
                 [ 
-                    InlineKeyboardButton("ʙᴀɴᴀʟʟ", callback_data="banall_"),
+                    InlineKeyboardButton("ᴀɪ", callback_data="banall_"),
         
                 ],
                 [
