@@ -64,7 +64,7 @@ back_buttons  = [[
 button = InlineKeyboardMarkup([
         
         [
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/ll_THE_BAD_BOT_ll"),    
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/PBX_CHAT"),    
         ],
     [
            InlineKeyboardButton("ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_"),    
