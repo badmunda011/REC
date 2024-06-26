@@ -19,7 +19,7 @@ import requests
 api_id = 26480985 #--Add your Api Id here
 api_hash = '56c935fae1c5c86ba5a3af655f8caa9d' #--Enter Api Hash Here
 
-token = '7236632685:AAERfwS_dQEBhVG-IjOauRZ-YYxk0NoAK3c' #--Enter Bot Token Here.
+token = '7326782027:AAFF3DKhjpASjOdjzscCPvp36Oz_DJtmF6A' #--Enter Bot Token Here.
 
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=token)
 AM_PIC = [
