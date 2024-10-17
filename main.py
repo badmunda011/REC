@@ -1,41 +1,43 @@
-import asyncio
-from os import remove
 from pyrogram import Client, filters
-from pyrogram.enums import ChatType
-from pyrogram.types import Message
-from datetime import datetime
-from time import time
-from pyrogram.errors import MessageDeleteForbidden, RPCError
-from asyncio import sleep
-from pyrogram import Client, enums
-from pyrogram.types import Message, User
-from pyrogram import Client, enums, filters
-from pyrogram import Client, enums, filters, raw
-from pyrogram.errors.exceptions.bad_request_400 import ChatNotModified
-from pyrogram.types import ChatPermissions, Message
-from os import getenv
-from dotenv import load_dotenv
+import requests
 import random
 
-CMDS = [" ","sukh"]
+api_id = 26480985 #--Add your Api Id here
+api_hash = '56c935fae1c5c86ba5a3af655f8caa9d' #--Enter Api Hash Here
 
-@app.on_message(filters.command(CMDS, prefixes=[""]))
-async def handle_incoming_messages(client, message):
-    reactions = ['👍','❤️','🔥','🥰','👏','😁','🤩','👌','🥱','😍','❤️‍🔥','💯','🤣','⚡️','😴','👀','🙈','🤝','🤗','🤪','💘','😘','😎']
-    if not await react_to_message(client, message, random.choice(reactions)):
-        print("All positive reactions failed.")
-        return
+token = '7454086236:AAHb_bglnsRCMNIm3gO8bWt9qlBqJxUTU0M' #--Enter Bot Token Here.
 
-async def react_to_message(client, message, reactions):
-    for reaction in reactions:
-        try:
-            if hasattr(message, 'id'):
-                await client.send_reaction(message.chat.id, message.id, reactions)
-                return True
-            else:
-                print("Message object does not have id attribute.")
-                return False
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            continue
-    return False
+emojis = ["👍", "👎", "❤️", "🔥", "🥰", "👏", "😁", "🤔", "🤯", "😱", "🤬", "😢", "🎉", "🤩", "🤮", "💩", "🙏", "👌", "🕊", "🤡", "🥱", "🥴", "😍", "🐳", "❤️‍🔥", "🌚", "🌭", "💯", "🤣", "⚡️", "🍌", "🏆", "💔", "🤨", "😐", "🍓", "🍾", "💋", "🖕", "😈", "😴", "😭", "🤓", "👻", "👨‍💻", "👀", "🎃", "🙈", "😇", "😨", "🤝", "✍️", "🤗", "🫡", "🎅", "🎄", "☃️", "💅", "🤪", "🗿", "🆒", "💘", "🙉", "🦄", "😘", "💊", "🙊", "😎", "👾", "🤷‍♂️", "🤷", "🤷‍♀️", "😡"]
+
+app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=token)
+
+@app.on_message()
+async def react_to_message(client, message):
+    chat_id = message.chat.id
+    message_id = message.id
+    
+    # Choose a random emoji from the list
+    random_emoji = random.choice(emojis)
+    
+    url = f'https://api.telegram.org/bot{token}/setMessageReaction'
+
+    # Parameters for the request
+    params = {
+        'chat_id': chat_id,
+        'message_id': message_id,
+        'reaction': [{
+            "type": "emoji",
+            "emoji": random_emoji
+        }]
+    }
+
+    response = requests.post(url, json=params)
+
+    if response.status_code == 200:
+        print("Reaction set successfully!")
+        print("Response content:", response.content)
+    else:
+        print(f"Failed to set reaction. Status code: {response.status_code}")
+        print("Response content:", response.content)
+    
+app.run()
